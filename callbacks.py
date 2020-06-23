@@ -26,8 +26,9 @@ def update_output(start_date, end_date):
      Input("dropdown-imports", "value")])
 def update_table(start_date, end_date, value):
     if start_date and end_date is not None:
+        print(type(end_date.to_pydatetime()))
         df_imports = df[df.Direction == "Imports"]
-        df_selected = df_imports[(df_imports.Current_Match > '02/23/2020') & (df_imports.Current_Match <= '03/28/2020')]
+        df_selected = df_imports[(df_imports.Current_Match > start_date) & (df_imports.Current_Match <= end_date)]
         if value is not None:
             df_selected = df_selected[df_selected.Country == value]
         print(df_selected)

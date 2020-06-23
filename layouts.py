@@ -23,3 +23,18 @@ layout_imports = html.Div([
         ]),
         Footer()
     ])
+
+layout_exports = html.Div([
+    Header(),
+    html.Div([
+            dash_table.DataTable(
+                id="datatable-exports",
+                columns=[{"name":i, "id":i} for i in df.columns]
+            )
+        ]),
+
+        html.Div([
+            dcc.Graph(id="graph-exports")
+        ]),
+        Footer()
+    ])

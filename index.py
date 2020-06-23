@@ -4,7 +4,7 @@ from dash.dependencies import Input, Output
 
 from app import app
 import callbacks
-from layouts import layout_imports
+from layouts import layout_imports, layout_exports
 
 
 app.index_string = ''' 
@@ -37,8 +37,10 @@ app.layout= html.Div([
 def display_page(pathname):
     if pathname=="/":
         return "hello home"
-    if pathname=="/imports":
+    elif pathname=="/imports":
         return layout_imports
+    elif pathname=="/exports":
+        return layout_exports
     else:
         return "404"
 

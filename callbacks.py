@@ -1,7 +1,8 @@
 from dash.dependencies import Input,Output
-from datetime import datetime as dt 
+from datetime import datetime as dt
 
 from app import app
+from layouts import df
 
 @app.callback(
     Output("output-container-date-picker-range-imports", "children"),
@@ -9,7 +10,7 @@ from app import app
      Input("date-picker-range-imports", "end_date")])
 def update_output(start_date, end_date):
     string_to_return = "You have selected "
-    print(start_date, end_date)
+    print(type(start_date),end_date)
     if start_date is not None:
         string_to_return = string_to_return + "the date range of " + start_date+ ' - '
         
@@ -18,16 +19,19 @@ def update_output(start_date, end_date):
     
     return string_to_return
 
-# @app.callback(
-#     Output("datatable-imports", "data"),
-#     [Input("date-picker-range-imports", "start_date"),
-#      Input("date-picker-range-imports", "end_date")])
-# def update_table(start_date, end_date):
-#     if start_date is not None:
-       
-        
-       
-#     if end_date is not None:
+@app.callback(
+    Output("datatable-imports", "data"),
+    [Input("date-picker-range-imports", "start_date"),
+     Input("date-picker-range-imports", "end_date"),
+     Input("dropdown-imports", "value")])
+def update_table(start_date, end_date, value):
+    if start_date and end_date is not None:
+        df_imports = df[df.Direction == "Imports"]
+        df_selected = df_imports[(df_imports.Current_Match > '02/23/2020') & (df_imports.Current_Match <= '03/28/2020')]
+        if value is not None:
+            df_selected = df_selected[df_selected.Country == value]
+        print(df_selected)
+        return df_selected.to_dict('rows')
        
         
        

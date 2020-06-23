@@ -23,7 +23,6 @@ app.index_string = '''
             {%scripts%}
             {%renderer%}
         </footer>
-        <div>Multipage dash app</div>
     </body>
 </html>
 '''

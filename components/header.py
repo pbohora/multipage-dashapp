@@ -11,7 +11,12 @@ def Header():
     countries = df["Country"].unique()
    
     header = html.Div([
-        "Multipage dash app",
+        html.H1(["Multi-page dash app"], className= "app-header--title"),
+        html.Div([
+            dcc.Link('Home', href='/'),
+            dcc.Link('Imports', href='/imports'),
+            dcc.Link('Exports', href='/exports')
+            ], className = "nav-links"),
         html.Div([
             dcc.DatePickerRange(
                 id="date-picker-range-imports",
@@ -32,7 +37,8 @@ def Header():
             ),
         ]),
 
-    ])
+    ],
+    className="app-header")
 
     return header
 

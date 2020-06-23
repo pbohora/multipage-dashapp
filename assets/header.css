@@ -1,0 +1,23 @@
+.app-header{
+    height:250px;
+    border-bottom: thin rgb(59, 53, 53) solid;
+    background-color: lightgray;
+    display: flex;
+    flex-direction: column;
+}
+
+.app-header--title{
+    align-self: center;
+}
+
+.nav-links{
+    display:flex;
+    justify-content: center;
+}
+
+.nav-links a{
+    padding:0 30px;
+    font-size: 24px;
+    text-decoration: none;
+
+}

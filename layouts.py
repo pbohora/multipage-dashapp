@@ -19,7 +19,7 @@ layout_imports = html.Div([
         ]),
 
         html.Div([
-            dcc.Graph(id="graph-imports")
+            dcc.Graph(id="graph-imports-exports")
         ]),
         Footer()
     ])
@@ -34,7 +34,7 @@ layout_exports = html.Div([
         ]),
 
         html.Div([
-            dcc.Graph(id="graph-exports")
+            dcc.Graph(id="graph-imports-exports")
         ]),
         Footer()
     ])

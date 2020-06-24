@@ -8,7 +8,6 @@ import pandas as pd
 def Header():
     df = pd.read_csv("data/datafile.csv")
     df = df.sort_values(by='Current_Match')
-    print(df)
     date =  df["Current_Match"]
 
     countries = df["Country"].unique()
@@ -27,8 +26,8 @@ def Header():
                 min_date_allowed = dt.strptime(date.min(),"%d/%m/%Y"),
                 max_date_allowed = dt.strptime(date.max(),"%d/%m/%Y"),
                 initial_visible_month =dt.strptime(date.min(),"%d/%m/%Y"),
-                start_date = dt.strptime(date.min(),"%d/%m/%Y"),
-                end_date = dt.strptime(date.max(),"%d/%m/%Y")
+                start_date = dt(2020, 5, 1),
+                end_date =  dt(2020, 5, 30)
             ),
             html.Div(id="output-container-date-picker-range-imports")
             
